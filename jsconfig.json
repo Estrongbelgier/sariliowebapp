@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
+    "baseUrl": "src",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["*"]
     }
   }
 }

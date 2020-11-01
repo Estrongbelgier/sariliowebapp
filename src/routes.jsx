@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import Home from "./pages/Home/Index";
-import Login from "./pages/Login";
-import Wallet from "./pages/Wallet";
-import Investments from "./pages/Investments";
-import Transfer from "./pages/Transfer";
-import Tips from "./pages/Tips";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home/Index';
+import Login from './pages/Login';
+import Wallet from './pages/Wallet';
+import Investments from './pages/Investments';
+import Transfer from './pages/Transfer';
+import Tips from '~/pages/Tips/index.jsx';
 
 function Routes() {
   return (

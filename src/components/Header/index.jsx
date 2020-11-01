@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React from "react";
-import "./styles.css";
-import Logo from "../../assets/images/Header/Logo.png";
-import Login from "../../assets/images/Header/Login.png";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '~/assets/images/Header/Logo.png';
+import Login from '~/assets/images/Header/Login.png';
+
+import './styles.css';
 
 export default function Header() {
   return (

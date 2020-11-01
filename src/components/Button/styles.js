@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const ButtonLink = styled(Link)`
+const ButtonLink = styled(Link)`
   color: var(--primary);
   border: 1px solid var(--primary);
   box-sizing: border-box;
@@ -36,5 +36,8 @@ export const ButtonLink = styled(Link)`
     }
   }
 `;
-/* TIP Quando quisermos usar outro componente com o comportameno diferente do que já temos, utilizamos styled(Componente)
+export default ButtonLink;
+
+/* TIP Quando quisermos usar outro componente com o
+comportameno diferente do que já temos, utilizamos styled(Componente)
  */

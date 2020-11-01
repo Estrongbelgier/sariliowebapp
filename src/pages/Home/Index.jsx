@@ -1,16 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Thumb from "~/assets/images/Home/Thumbnail.png";
-import Wallet from "~/assets/images/Sections/wallet.svg";
-import Transfer from "~/assets/images/Sections/transfer.svg";
-import Investments from "~/assets/images/Sections/investments.svg";
-import Tipandtricks from "~/assets/images/Sections/tipandtricks.svg";
+import Thumb from '~/assets/images/Home/Thumbnail.png';
+import Wallet from '~/assets/images/Sections/wallet.svg';
+import Transfer from '~/assets/images/Sections/transfer.svg';
+import Investments from '~/assets/images/Sections/investments.svg';
+import Tipandtricks from '~/assets/images/Sections/tipandtricks.svg';
 
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
+import Header from '~/components/Header/index.jsx';
+import Footer from '~/components/Footer/index.jsx';
 
-import "./styles.css";
+import './styles.css';
 
 function Home() {
   return (
@@ -53,12 +53,16 @@ function Home() {
             <legend>Entre em contado</legend>
 
             <div className="input-block">
-              <label htmlFor="name">Nome</label>
-              <input id="name" />
+              <label htmlFor="name">
+                Nome
+                <input id="name" type="name" />
+              </label>
             </div>
             <div className="input-block">
-              <label htmlFor="email">E-mail</label>
-              <input id="email" />
+              <label htmlFor="email">
+                E-mail
+                <input id="email" type="email" />
+              </label>
             </div>
           </fieldset>
 

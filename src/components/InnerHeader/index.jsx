@@ -1,17 +1,17 @@
-/* eslint-disable jsx-a11y/accessible-emoji */
-import React, { useState, useEffect } from "react";
-import "./styles.css";
-import { CSSTransition } from "react-transition-group";
-import Logo from "../../assets/images/Header/Logo.png";
-import Login from "../../assets/images/Header/Login.png";
-import { Link } from "react-router-dom";
+/* import React, { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/images/Header/Logo.png';
+import Login from '../../assets/images/Header/Login.png';
+
+import './styles.css';
 
 export default function Header() {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 800px)");
+    const mediaQuery = window.matchMedia('(max-width: 800px)');
     mediaQuery.addListener(handleMediaQueryChange);
     handleMediaQueryChange(mediaQuery);
 
@@ -46,16 +46,17 @@ export default function Header() {
           <a href="/">Articles</a>
           <a href="/">About</a>
 
-          <button>
-            <Link as button>
+          <button type="button">
+            <Link to="/">
               <img src={Login} alt="" />
             </Link>
           </button>
         </nav>
       </CSSTransition>
-      <button onClick={toggleNav} className="Burger">
+      <button type="button" onClick={toggleNav} className="Burger">
         <img src={Login} alt="" />
       </button>
     </header>
   );
 }
+ */
