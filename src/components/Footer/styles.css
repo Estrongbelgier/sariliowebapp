@@ -1,0 +1,25 @@
+footer {
+  background: url("../../assets/images/Backgrouds/HeaderBackgroud.png");
+  width: 100vw;
+  height: 140px;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+footer img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+footer h4 {
+  color: var(--color-background);
+}
+@media (max-width: 800px) {
+  footer {
+    bottom: 0;
+  }
+}
