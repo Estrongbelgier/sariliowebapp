@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Thumb from "../../assets/images/Home/Thumbnail.png";
-import Wallet from "../../assets/images/Sections/wallet.svg";
-import Transfer from "../../assets/images/Sections/transfer.svg";
-import Investments from "../../assets/images/Sections/investments.svg";
-import Tipandtricks from "../../assets/images/Sections/tipandtricks.svg";
+import Thumb from "~/assets/images/Home/Thumbnail.png";
+import Wallet from "~/assets/images/Sections/wallet.svg";
+import Transfer from "~/assets/images/Sections/transfer.svg";
+import Investments from "~/assets/images/Sections/investments.svg";
+import Tipandtricks from "~/assets/images/Sections/tipandtricks.svg";
 
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
 
 import "./styles.css";
 

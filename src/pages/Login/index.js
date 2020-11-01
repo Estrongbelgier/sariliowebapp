@@ -6,7 +6,7 @@ function Login() {
     <>
       <h1>Longin PAGE</h1>
       <h2>Feature não implementada.</h2>
-      <Link to="/"></Link>
+      <Link to="/">Voltar</Link>
     </>
   );
 }

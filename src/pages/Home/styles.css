@@ -4,6 +4,7 @@
 .listsection {
   border: 0;
 }
+
 .listsection ul {
   justify-content: space-between;
   align-items: flex-end;
