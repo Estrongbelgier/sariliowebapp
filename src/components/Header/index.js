@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/accessible-emoji */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./styles.css";
 import Logo from "../../assets/images/Header/Logo.png";
 import Login from "../../assets/images/Header/Login.png";
