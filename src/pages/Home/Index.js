@@ -9,7 +9,6 @@ import Tipandtricks from "../../assets/images/Sections/tipandtricks.svg";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Logo from "../../assets/images/Header/Logo.png";
 
 import "./styles.css";
 
