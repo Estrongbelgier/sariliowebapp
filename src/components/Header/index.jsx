@@ -11,7 +11,8 @@ export default function Header() {
     <header className="Header">
       <img src={Logo} className="logo" alt="logo" />
       <Link to="/login" className="login">
-        <img src={Login} alt="" />
+        <img src={Login} alt="Login" />
+        <h6>Login/Cadastro</h6>
       </Link>
     </header>
   );

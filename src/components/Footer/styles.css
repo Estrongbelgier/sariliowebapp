@@ -1,7 +1,8 @@
 footer {
-  background: url("../../assets/images/Backgrouds/HeaderBackgroud.png");
+  background-color: var(--primary);
+  /* background: url("../../assets/images/Backgrouds/HeaderBackgroud.png"); */
   width: 100vw;
-  height: 140px;
+  height: 105px;
   text-align: center;
   align-items: center;
   position: relative;

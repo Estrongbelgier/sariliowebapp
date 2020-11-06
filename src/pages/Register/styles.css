@@ -1,15 +1,15 @@
 /*GRID style*/
-.grid {
+.register-grid {
   display: grid;
   grid-template-columns: 1fr;
 }
 
-.grid-template-rows-1 {
+.register-grid-template-rows-1 {
   grid-template-rows: 100px 80% 5%;
 }
 
 /*PAGE style*/
-.login-page-container {
+.register-page-container {
   background: linear-gradient(-90deg, var(--primary), var(--blackLighter));
   padding-bottom: 20px;
   width: 100vw;
@@ -18,45 +18,36 @@
 
 /*LOGIN style*/
 
-.login-form-container {
-  margin-top: 30px;
+.register-form-container {
   justify-content: center;
   align-items: center;
 }
 
-.form-container {
+.form-legend {
+  width: 100%;
+  font-size: 32px;
+  line-height: 50px;
+  color: azure;
+  font-weight: 700;
+  border-bottom: 1px solid #d3e2e5;
+  text-align: center;
+}
+
+.register-form-container {
   display: grid;
   justify-content: center;
   border-radius: 14px;
 }
 
-.login-form-container img {
-  padding-top: 15px;
-  padding-left: 35px;
-  padding-bottom: 15px;
-}
-
-.login-form-input {
+.register-login-form-input {
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid azure;
   border-radius: 4px;
+  width: 300px;
   height: 44px;
   padding: 15px;
   color: rgba(255, 255, 255, 0.6);
-  margin: 0 0 10px;
-}
-
-/*FOOTER style*/
-#login-footer {
-  padding-left: 60px;
-  padding-bottom: 20px;
-  color: aquamarine;
-}
-
-#login-footer-off {
-  padding-left: 60px;
-  padding-bottom: 20px;
-  color: crimson;
+  margin: 0 0 18px;
 }
 
 button {
@@ -71,20 +62,30 @@ button {
   font-size: 16px;
   transition: background-color 0.2s;
 }
+
 button:hover {
   background: var(--primary);
 }
 
-.login-cadastro-link {
+/*FOOTER style*/
+#login-footer {
+  padding-left: 60px;
+  padding-bottom: 20px;
   color: azure;
-  margin-top: 15px;
-  font-size: 16px;
-  opacity: 0.8;
-  text-decoration: none;
-  text-align: center;
-  transition: opacity 0.2s;
 }
 
-.login-cadastro-link:hover {
-  opacity: 0.4;
+/*MOBILE Icon style*/
+
+@media (max-width: 768px) {
+  #icon {
+    padding: 20px;
+    transition: opacity 0.2s;
+  }
+
+  #login-footer {
+    padding: 20px 20px;
+    color: azure;
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -1,8 +1,12 @@
 .thumbsection {
+  justify-content: center;
+  display: grid;
+  grid-template-rows: auto;
 }
 
 .listsection {
   border: 0;
+  text-align: center;
 }
 
 .listsection ul {
@@ -10,12 +14,13 @@
   align-items: flex-end;
   display: flex;
   padding-right: 30px;
+  padding-left: 30px;
 }
 
 .listsection li {
   list-style-type: none;
+  padding: 40px 10px;
 
-  padding: 10px;
   transition: padding 0.5s;
 }
 
@@ -26,7 +31,7 @@
   padding-right: 60px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .listsection ul {
     justify-content: center;
     align-items: center;
@@ -38,7 +43,7 @@
 
 .listsection h3 {
   color: var(--blackLighter);
-  align-items: center;
+  padding: 10px;
 }
 
 .formsection {
@@ -105,7 +110,7 @@ form.contatoform .input-block input {
   border: 1px solid #d3e2e5;
   border-radius: 20px;
   outline: none;
-  color: #5c8599;
+  color: var(--frontEnd);
 }
 
 form.contatoform .input-block input {
@@ -126,7 +131,7 @@ form.contatoform button.confirm-button {
   height: 64px;
   border: 0;
   cursor: pointer;
-  background: #3cdc8c;
+  background: #5c8599;
   border-radius: 20px;
   color: #ffffff;
   font-weight: 800;
@@ -143,7 +148,7 @@ form.contatoform button.confirm-button svg {
 }
 
 form.contatoform button.confirm-button:hover {
-  background: #36cf82;
+  background: var(--primary);
 }
 
 @media (max-width: 800px) {

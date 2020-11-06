@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home/Index';
+import Home from '~/pages/Home/index.jsx';
+import Register from './pages/Register';
 import Login from './pages/Login';
 import Wallet from './pages/Wallet';
 import Investments from './pages/Investments';
@@ -19,6 +20,7 @@ function Routes() {
         <Route path="/transfer" component={Transfer} />
         <Route path="/tips" component={Tips} />
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </Switch>
     </BrowserRouter>
   );

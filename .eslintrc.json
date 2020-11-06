@@ -32,7 +32,18 @@
         "functions": "never"
       }
     ],
-    "react/jsx-one-expression-per-line": [2, { "allow": "literal" }]
+    "react/jsx-one-expression-per-line": [2, { "allow": "literal" }],
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "custom": "ignore",
+        "explicitSpread": "enforce",
+        "exceptions": [""]
+      }
+    ],
+    "no-unused-vars": 0,
+    "object-curly-newline": 0
   },
   "settings": {
     "import/resolver": {

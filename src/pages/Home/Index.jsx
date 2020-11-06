@@ -54,14 +54,16 @@ function Home() {
 
             <div className="input-block">
               <label htmlFor="name">
-                Nome
-                <input id="name" type="name" />
+                <input id="name" type="name" placeholder="Seu nome." />
               </label>
             </div>
             <div className="input-block">
               <label htmlFor="email">
-                E-mail
-                <input id="email" type="email" />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Seu e-mail válido."
+                />
               </label>
             </div>
           </fieldset>
