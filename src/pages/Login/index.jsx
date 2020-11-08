@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import * as Yup from 'yup';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as connectionAction from '~/store/modules/connection/actions';
 import logo from '~/assets/images/Fav/Maozinha.png';
 import './styles.css';
@@ -30,12 +30,21 @@ function Login({ conn }) {
     handleApiConnection();
   }, []);
 
+  function showToast() {
+    toast.success('FUNCIONOU');
+  }
   return (
     <>
       <div className="grid grid-template-rows-1 login-page-container">
         <CleanHeader />
         <div className="login-form-container">
-          <Form className="form-container" schema={schema} onSubmit={() => {}}>
+          <Form
+            className="form-container"
+            schema={schema}
+            onSubmit={() => {
+              showToast();
+            }}
+          >
             <img src={logo} alt="Sarilio logo" />
             <Input
               className="login-form-input"
