@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as Yup from 'yup';
 import { Form, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
+import * as connectionAction from '~/store/modules/connection/actions';
 import logo from '~/assets/images/Fav/Maozinha.png';
-
 import './styles.css';
 import CleanHeader from '~/components/CleanHeader/index.jsx';
-import api from '~/services/api';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -16,18 +17,18 @@ const schema = Yup.object().shape({
   password: Yup.string().required('Password is required'),
 });
 
-const loading = false;
+function Login({ conn }) {
+  const { data, status } = conn;
+  const dispatch = useDispatch();
 
-function Login() {
-  const [conn, setConn] = useState();
+  function handleApiConnection() {
+    return dispatch(connectionAction.viewConnectionRequest());
+  }
+  console.tron.log(status);
 
   useEffect(() => {
-    api.get('/').then((response) => {
-      const { data } = response;
-      setConn(data);
-      console.log(data);
-    });
-  }, [conn]);
+    handleApiConnection();
+  }, []);
 
   return (
     <>
@@ -51,20 +52,25 @@ function Login() {
               placeholder="Senha senha cadastrada"
             />
 
-            <button type="submit">{loading ? 'Loading...' : 'Entrar'}</button>
+            <button type="submit">Entrar</button>
             <Link to="/register" className="login-cadastro-link">
               Cadastre-se
             </Link>
           </Form>
         </div>
-        {conn ? (
-          <div id="login-footer">0 Clientes | Online</div>
+        {!status ? (
+          <div id="login-footer-off">Conectando...</div>
         ) : (
-          <div id="login-footer-off">Offline</div>
+          <div id="login-footer">{data.usuarios} Clientes | Online</div>
         )}
       </div>
     </>
   );
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+  conn: state.conn,
+});
+
+export default connect(mapStateToProps)(Login);
+// REDUX conectar ao store
