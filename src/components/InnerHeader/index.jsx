@@ -1,4 +1,5 @@
-/* import React, { useState, useEffect } from 'react';
+/* eslint-disable no-use-before-define */
+import React, { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/Header/Logo.png';
@@ -33,7 +34,7 @@ export default function Header() {
   };
 
   return (
-    <header className="Header">
+    <header className="InnerHeader">
       <img src={Logo} className="Logo" alt="logo" />
       <CSSTransition
         in={!isSmallScreen || isNavVisible}
@@ -59,4 +60,3 @@ export default function Header() {
     </header>
   );
 }
- */

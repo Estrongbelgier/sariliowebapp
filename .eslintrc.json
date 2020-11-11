@@ -34,7 +34,7 @@
         "functions": "never"
       }
     ],
-    "react/jsx-one-expression-per-line": [2, { "allow": "literal" }],
+    "react/jsx-one-expression-per-line": [2, { "allow": "single-child" }],
     "react/jsx-props-no-spreading": [
       "error",
       {

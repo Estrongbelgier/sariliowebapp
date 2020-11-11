@@ -6,9 +6,7 @@ import './styles.css';
 
 function CleanHeader() {
   const history = useHistory();
-  function getBack() {
-    history.goBack();
-  }
+
   return (
     <header className="login-header-container">
       <div id="icon">
@@ -19,10 +17,10 @@ function CleanHeader() {
       </div>
       <div id="icon-back">
         <FiArrowLeft
-          onClick={() => {
-            getBack();
-          }}
           color="Azure"
+          onClick={() => {
+            history.goBack();
+          }}
           size={60}
         />
       </div>

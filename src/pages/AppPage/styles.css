@@ -1,0 +1,25 @@
+/*GRID style*/
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.grid-template-rows-1 {
+  grid-template-rows: 100px 80% 5%;
+}
+
+/*PAGE style*/
+.app-page-container {
+  background: linear-gradient(-90deg, var(--primary), var(--blackLighter));
+  padding-bottom: 20px;
+  width: 100vw;
+  height: 100vh;
+}
+
+/*LOGIN style*/
+
+.app-container {
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}

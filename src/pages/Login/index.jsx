@@ -1,84 +1,91 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React, { useState, useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { Form, Input } from '@rocketseat/unform';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Link, Redirect } from 'react-router-dom';
 import * as connectionAction from '~/store/modules/connection/actions';
+import { singInRequest } from '~/store/modules/auth/actions';
 import logo from '~/assets/images/Fav/Maozinha.png';
 import './styles.css';
 import CleanHeader from '~/components/CleanHeader/index.jsx';
 
 const schema = Yup.object().shape({
   email: Yup.string()
-    .email('Put a valid e-mail')
-    .required('An e-mail is required'),
-  password: Yup.string().required('Password is required'),
+    .email('Insira um e-mail válido!')
+    .required('O e-mail é obrigatório!'),
+  senha: Yup.string().required('Senha é obrigatório'),
 });
 
-function Login({ conn }) {
+function Login({ conn, auth }) {
+  const { signed } = auth;
   const { data, status } = conn;
   const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
 
   function handleApiConnection() {
     return dispatch(connectionAction.viewConnectionRequest());
   }
-  console.tron.log(status);
 
   useEffect(() => {
     handleApiConnection();
   }, []);
 
-  function showToast() {
-    toast.success('FUNCIONOU');
+  function handleSubmit({ email, senha }) {
+    dispatch(singInRequest(email, senha));
   }
+
   return (
     <>
-      <div className="grid grid-template-rows-1 login-page-container">
-        <CleanHeader />
-        <div className="login-form-container">
-          <Form
-            className="form-container"
-            schema={schema}
-            onSubmit={() => {
-              showToast();
-            }}
-          >
-            <img src={logo} alt="Sarilio logo" />
-            <Input
-              className="login-form-input"
-              name="email"
-              type="email"
-              color="#ccc"
-              placeholder="Seu e-mail cadastrado"
-            />
-            <Input
-              className="login-form-input"
-              name="password"
-              type="password"
-              color="#ccc"
-              placeholder="Senha senha cadastrada"
-            />
+      {signed ? (
+        <Redirect to="/app" />
+      ) : (
+        <div className="grid grid-template-rows-1 login-page-container">
+          <CleanHeader />
+          <div className="login-form-container">
+            <Form
+              className="form-container"
+              schema={schema}
+              onSubmit={handleSubmit}
+            >
+              <img src={logo} alt="Sarilio logo" />
+              <Input
+                className="login-form-input"
+                name="email"
+                type="email"
+                color="#ccc"
+                placeholder="Seu e-mail cadastrado"
+              />
+              <Input
+                className="login-form-input"
+                name="senha"
+                type="password"
+                color="#ccc"
+                placeholder="Senha senha cadastrada"
+              />
 
-            <button type="submit">Entrar</button>
-            <Link to="/register" className="login-cadastro-link">
-              Cadastre-se
-            </Link>
-          </Form>
+              <button type="submit">
+                {loading ? 'Carregando...' : 'Entrar'}
+              </button>
+              <Link to="/register" className="login-cadastro-link">
+                Cadastre-se
+              </Link>
+            </Form>
+          </div>
+          {!status ? (
+            <div id="login-footer-off">Conectando...</div>
+          ) : (
+            <div id="login-footer">{data.usuarios} Clientes | Online</div>
+          )}
         </div>
-        {!status ? (
-          <div id="login-footer-off">Conectando...</div>
-        ) : (
-          <div id="login-footer">{data.usuarios} Clientes | Online</div>
-        )}
-      </div>
+      )}
     </>
   );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, auth) => ({
   conn: state.conn,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(Login);

@@ -7,9 +7,12 @@ import CleanHeader from '~/components/CleanHeader/index.jsx';
 
 const schema = Yup.object().shape({
   email: Yup.string()
-    .email('Put a valid e-mail')
-    .required('An e-mail is required'),
-  password: Yup.string().required('Password is required'),
+    .email('O e-mail deve ser válido!')
+    .required('O email é obrigatório!'),
+  password: Yup.string()
+    .min(6, 'No mínimo 6 caracteres!')
+    .max(16, 'No máximo 16 caracteres!')
+    .required('A senha é obrigatória'),
 });
 
 function Register() {

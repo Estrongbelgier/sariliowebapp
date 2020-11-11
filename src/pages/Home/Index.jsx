@@ -14,7 +14,7 @@ import './styles.css';
 
 function Home() {
   return (
-    <body>
+    <div>
       <Header />
       <section className="thumbsection">
         <img src={Thumb} alt="" />
@@ -74,7 +74,7 @@ function Home() {
         </form>
       </section>
       <Footer />
-    </body>
+    </div>
   );
 }
 
