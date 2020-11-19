@@ -46,6 +46,12 @@
   padding: 10px;
 }
 
+.listsection p {
+  padding-top: 20px;
+  color: var(--blackLighter);
+  font-size: large;
+}
+
 .formsection {
   border: 0;
   border-top: 1px solid #ccc;
@@ -104,7 +110,8 @@ form.contatoform .input-block label {
   line-height: 24px;
 }
 
-form.contatoform .input-block input {
+form.contatoform .input-block input,
+textarea {
   width: 100%;
   background: #f5f8fa;
   border: 1px solid #d3e2e5;
@@ -116,6 +123,11 @@ form.contatoform .input-block input {
 form.contatoform .input-block input {
   height: 64px;
   padding: 0 16px;
+}
+
+form.contatoform .input-block textarea {
+  padding: 16px;
+  padding-top: 20px;
 }
 
 form.contatoform .input-block .button-select button.active {
@@ -180,11 +192,16 @@ form.contatoform button.confirm-button:hover {
     padding-bottom: 12px;
   }
 
-  form.contatoform .input-block input {
+  form.contatoform .input-block input,
+  textarea {
     height: 52px;
-    padding: 0 50px;
+    padding: 10px;
   }
 
+  form.contatoform .input-block textarea {
+    padding: 10px;
+    padding-top: 15px;
+  }
   form.contatoform button.confirm-button {
     margin-top: 32px;
   }

@@ -1,20 +1,23 @@
 /* eslint-disable no-use-before-define */
+/* eslint-disable jsx-a11y/accessible-emoji */
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/images/Header/Logo.png';
-import Login from '../../assets/images/Header/Login.png';
-
+import { signOut } from '~/store/modules/auth/actions';
+import logo from '~/assets/images/Header/Logo.png';
 import './styles.css';
 
-export default function Header() {
+export default function InnerHeader() {
   const [isNavVisible, setNavVisibility] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 800px)');
-    mediaQuery.addListener(handleMediaQueryChange);
+    const mediaQuery = window.matchMedia('(max-width: 700px)');
     handleMediaQueryChange(mediaQuery);
+    mediaQuery.addListener(handleMediaQueryChange);
 
     return () => {
       mediaQuery.removeListener(handleMediaQueryChange);
@@ -33,9 +36,14 @@ export default function Header() {
     setNavVisibility(!isNavVisible);
   };
 
+  const handleSingOut = () => {
+    dispatch(signOut());
+  };
   return (
     <header className="InnerHeader">
-      <img src={Logo} className="Logo" alt="logo" />
+      <Link to="/">
+        <img src={logo} className="Logo" alt="logo" />
+      </Link>
       <CSSTransition
         in={!isSmallScreen || isNavVisible}
         timeout={350}
@@ -43,19 +51,16 @@ export default function Header() {
         unmountOnExit
       >
         <nav className="Nav">
-          <a href="/">Home</a>
-          <a href="/">Articles</a>
-          <a href="/">About</a>
-
-          <button type="button">
-            <Link to="/">
-              <img src={Login} alt="" />
-            </Link>
+          <Link to="/app">Home</Link>
+          <Link to="/book">Book</Link>
+          <Link to="/profile">Perfil</Link>
+          <button type="button" onClick={handleSingOut}>
+            Sair
           </button>
         </nav>
       </CSSTransition>
       <button type="button" onClick={toggleNav} className="Burger">
-        <img src={Login} alt="" />
+        {isNavVisible ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </button>
     </header>
   );

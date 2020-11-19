@@ -33,9 +33,10 @@ export function* signIn({ payload }) {
       pauseOnHover: true,
       draggable: true,
     });
+    window.location.reload();
   } catch (err) {
     yield put(signFailure());
-    toast.error('Problema na autenticação !');
+    toast.error('Problema na autenticação!');
   }
 }
 
@@ -48,9 +49,10 @@ export function* singUp({ payload }) {
     });
     const { message } = res;
     history.push('/login');
-    toast.success(message);
+    window.location.reload();
+    toast.success('Cadastro realizado, aguarde a aprovação!');
   } catch (err) {
-    toast.error('Please put all information needed.');
+    toast.error('Algo deu errado, tente novamente!');
     yield put(signFailure());
   }
 }
@@ -69,7 +71,7 @@ export function singOut() {
   window.localStorage.clear();
   history.push('/');
   window.location.reload();
-  toast.success('LOGADO OUT!!');
+  toast.success('Que triste ver você ir...');
 }
 
 export default all([

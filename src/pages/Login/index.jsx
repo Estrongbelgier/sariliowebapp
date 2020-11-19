@@ -29,7 +29,7 @@ function Login({ conn, auth }) {
 
   useEffect(() => {
     handleApiConnection();
-  }, []);
+  }, [status]);
 
   function handleSubmit({ email, senha }) {
     dispatch(singInRequest(email, senha));

@@ -8,6 +8,9 @@ const INITIAL_STATE = {
 export default function user(state = INITIAL_STATE, action) {
   return produce(state, (draft) => {
     switch (action.type) {
+      case '@user/GET_USER_INFORMATION_SUCCESS':
+        draft.information = action.payload.data;
+        break;
       case '@auth/SIGN_IN_SUCCESS': {
         draft.profile = action.payload.usuario;
         break;
