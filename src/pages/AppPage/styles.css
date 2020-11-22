@@ -30,7 +30,8 @@ h1 {
   border-bottom: 1px solid #d3e2e5;
 }
 h1,
-h6 {
+h6,
+h2 {
   color: #d3e2e5;
   display: flex;
   justify-content: center;
@@ -62,7 +63,6 @@ h6 {
   .app-container {
     height: 50vh;
     width: 90vw;
-
     transition: none;
   }
 

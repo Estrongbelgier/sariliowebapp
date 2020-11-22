@@ -20,18 +20,28 @@ export default function PFCard() {
   }
   return (
     <>
-      <Form schema={schema} onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit} id="pf-form-container">
         <h1>Pessoa fisíca</h1>
-        <Input name="cpf" type="text" placeholder="Seu CPF" />
-        <Input name="nome" type="text" placeholder="Seu nome" />
-        <Input name="data_de_nascimento" type="date" />
-        <Input name="nome_da_mae" type="text" placeholder="Nome da sua mãe" />
-        <Input name="celular" type="tel" placeholder="Numero de celular" />
-        <div>
+        <div className="input-item">
+          <Input name="cpf" type="text" placeholder="Seu CPF" />
+        </div>
+        <div className="input-item">
+          <Input name="data_de_nascimento" type="date" />
+        </div>
+        <div className="input-item">
+          <Input name="nome_da_mae" type="text" placeholder="Nome da sua mãe" />
+        </div>
+        <div className="input-item">
+          <Input name="nome" type="text" placeholder="Seu nome" />
+        </div>
+        <div className="input-item">
+          <Input name="celular" type="tel" placeholder="Numero de celular" />
+        </div>
+        <div className="genero-container">
           <Input name="genero" type="radio" id="male" value="Masculino" />
           <label htmlFor="Masculino">Masculino</label>
         </div>
-        <div>
+        <div className="genero-container">
           <Input name="genero" type="radio" id="female" value="Feminino" />
           <label htmlFor="Feminino">Feminino</label>
         </div>

@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import Login from '~/pages/Login/index.jsx';
 import AppPage from '~/pages/AppPage/index.jsx';
 import Register from '~/pages/Register/index.jsx';
+import MeusAtivos from '~/pages/MeusAtivos/index.jsx';
 
 export default function Routes() {
   return (
@@ -15,6 +16,7 @@ export default function Routes() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/book" component={Book} />
+      <Route path="/meusativos" component={MeusAtivos} />
       <Route path="/profile" component={Profile} />
       <Route path="/app" component={AppPage} />
       <Route />

@@ -9,6 +9,7 @@
 
 .book-container {
   width: 60%;
+  height: 90vh;
 }
 
 .book-container li {
@@ -19,5 +20,6 @@
 @media (max-width: 768px) {
   .book-container {
     width: 80%;
+    height: 100vh;
   }
 }

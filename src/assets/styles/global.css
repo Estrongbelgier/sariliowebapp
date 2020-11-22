@@ -55,7 +55,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--primary);
+  background-color: azure;
   border-radius: 50px;
   size: 10px;
 }

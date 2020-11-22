@@ -23,15 +23,25 @@ export default function PFCard() {
     <>
       <Form schema={schema} onSubmit={handleSubmit}>
         <h1>Pessoa juridica</h1>
-        <Input name="cnpj" type="text" placeholder="CNPJ" />
-        <Input name="razao_social" type="text" placeholder="Razão social" />
-        <Input name="nome_fantasia" type="text" placeholder="Nome fantasia" />
-        <Input
-          name="inscricao_estadual"
-          type="number"
-          placeholder="Inscrição estadual"
-        />
-        <Input name="telefone" type="tel" placeholder="Telefone" />
+        <div className="input-item">
+          <Input name="cnpj" type="text" placeholder="CNPJ" />
+        </div>
+        <div className="input-item">
+          <Input name="razao_social" type="text" placeholder="Razão social" />
+        </div>
+        <div className="input-item">
+          <Input name="nome_fantasia" type="text" placeholder="Nome fantasia" />
+        </div>
+        <div className="input-item">
+          <Input
+            name="inscricao_estadual"
+            type="number"
+            placeholder="Inscrição estadual"
+          />
+        </div>
+        <div className="input-item">
+          <Input name="telefone" type="tel" placeholder="Telefone" />
+        </div>
         <button type="submit">Registrar</button>
       </Form>
     </>

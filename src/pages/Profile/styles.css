@@ -2,7 +2,7 @@
 .profile-page-container {
   background: linear-gradient(-90deg, var(--primary), var(--blackLighter));
   padding-top: 100px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: space-around;
 }
@@ -40,12 +40,12 @@
 .input-block .button-select {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 5px 50px 10px 50px;
 }
 
 .input-block .button-select button {
-  height: 64px;
+  height: 54px;
   background: #f5f8fa;
-  border: 1px solid #d3e2e5;
   color: #5c8599;
   cursor: pointer;
 }
@@ -93,6 +93,11 @@ button.confirm-button:hover {
 }
 
 .endereco-container {
+  display: grid;
+  justify-content: center;
+}
+
+.fake-deposito {
   display: grid;
   justify-content: center;
 }

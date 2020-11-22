@@ -53,6 +53,7 @@ export default function InnerHeader() {
         <nav className="Nav">
           <Link to="/app">Home</Link>
           <Link to="/book">Book</Link>
+          <Link to="/meusativos">Meus Ativos</Link>
           <Link to="/profile">Perfil</Link>
           <button type="button" onClick={handleSingOut}>
             Sair

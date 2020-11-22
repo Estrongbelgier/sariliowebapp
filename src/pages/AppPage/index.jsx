@@ -70,6 +70,7 @@ function AppPage() {
           </div>
           <div className="app-container">
             <h1>Ativos</h1>
+            {/* TODO colcoar um corrosel */}
             {userData.ClienteAtivos.map((ativos) => (
               <div key={ativos.id}>
                 <div className="icon-combo">

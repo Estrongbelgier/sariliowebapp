@@ -46,7 +46,7 @@ function Register() {
             type="password"
             placeholder="Cria uma senha forte."
           />
-
+          {/* TODO colocar loading aqui */}
           <button type="submit">Enviar</button>
         </Form>
       </div>
