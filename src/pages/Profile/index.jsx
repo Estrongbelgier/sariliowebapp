@@ -14,12 +14,20 @@ import PJCard from '~/components/PJCard/index.jsx';
 import cepApi from '~/services/cepApi';
 import Endereco from '~/components/Endereco/index.jsx';
 import api from '~/services/api';
+import history from '~/services/history';
 
 function Profile() {
   const [qualidade, setQualidade] = useState(true);
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState({});
   const [money, setMoney] = useState(Number());
+
+  const [cpf, setCpf] = useState('');
+  const [titular, setTitular] = useState('');
+  const [banco, setBanco] = useState();
+  const [tipo, setTipo] = useState('');
+  const [agencia, setAgencia] = useState();
+  const [conta, setConta] = useState();
 
   async function handleBuscaCep() {
     const { data } = await cepApi.get(`/${cep}/json`);
@@ -46,6 +54,24 @@ function Profile() {
     res
       ? toast.success('FAKE deposito realizado!!')
       : toast.error('FAKE desito não realizado');
+  }
+
+  async function handleContaBancaria() {
+    try {
+      const res = await api.post('/accban', {
+        cpf,
+        titular,
+        numero_do_banco: banco,
+        tipo_de_conta: tipo,
+        agencia,
+        numero_da_conta: conta,
+      });
+      toast.sucess('Conta registrada!');
+      history.push('/app');
+      window.location.reload();
+    } catch (error) {
+      toast.error('Algo deu errado! Tente novamente');
+    }
   }
 
   return (
@@ -91,9 +117,11 @@ function Profile() {
           </div>
           {endereco ? (
             <Endereco
+              cep={cep}
               localidade={endereco.localidade}
               bairro={endereco.bairro}
               logradouro={endereco.logradouro}
+              uf={endereco.uf}
             />
           ) : (
             'nada encontrado'
@@ -102,24 +130,62 @@ function Profile() {
         <div className="conta-bancaria">
           <h1>Conta bancaria</h1>
           <div className="acc-item">
-            <input type="text" placeholder="cpf" />
+            <input
+              type="text"
+              placeholder="cpf"
+              onChange={(e) => {
+                setCpf(e.target.value);
+              }}
+            />
           </div>
           <div className="acc-item">
-            <input type="text" placeholder="titular" />
+            <input
+              type="text"
+              placeholder="titular"
+              onChange={(e) => {
+                setTitular(e.target.value);
+              }}
+            />
           </div>
           <div className="acc-item">
-            <input type="text" placeholder="numero_do_banco" />
+            <input
+              type="text"
+              placeholder="numero_do_banco"
+              onChange={(e) => {
+                setBanco(Number(e.target.value));
+              }}
+            />
           </div>
           <div className="acc-item">
-            <input type="text" placeholder="tipo_de_conta" />
+            <input
+              type="text"
+              placeholder="tipo_de_conta"
+              onChange={(e) => {
+                setTipo(e.target.value);
+              }}
+            />
           </div>
           <div className="acc-item">
-            <input type="text" placeholder="agencia" />
+            <input
+              type="text"
+              placeholder="agencia"
+              onChange={(e) => {
+                setAgencia(Number(e.target.value));
+              }}
+            />
           </div>
           <div className="acc-item">
-            <input type="text" placeholder="numero_da_conta" />
+            <input
+              type="text"
+              placeholder="numero_da_conta"
+              onChange={(e) => {
+                setConta(Number(e.target.value));
+              }}
+            />
           </div>
-          <button type="button">Salvar</button>
+          <button type="button" onClick={handleContaBancaria}>
+            Salvar
+          </button>
         </div>
         <div className="fake-deposito">
           <h1>Fake deposito</h1>

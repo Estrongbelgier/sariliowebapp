@@ -1,7 +1,10 @@
+/* eslint-disable object-curly-spacing */
 /* eslint-disable no-console */
 /* eslint-disable camelcase */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import { toast } from 'react-toastify';
+import api from '~/services/api';
 import formatPrice from '~/utils/corruency';
 import './styles.css';
 
@@ -14,9 +17,20 @@ export default function OutlinedCard({
   owner,
   order,
 }) {
-  function handleCompra() {
-    const order_id = order;
-    console.log(order_id);
+  async function handleCompra() {
+    const ordem_id = order;
+    console.log(ordem_id);
+
+    const params = { ordem_id };
+
+    try {
+      const res = await api.post(`bind?ordem_id=${ordem_id}`); // TODO estavamos aqui
+      console.log(res);
+      toast.success('Ativo comprado !');
+    } catch (error) {
+      console.log(error);
+      toast.error('Compra não realizada!');
+    }
   }
   return (
     <div className="card-container">
