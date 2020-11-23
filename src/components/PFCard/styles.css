@@ -1,0 +1,68 @@
+#pf-form-container {
+  display: flexbox;
+}
+
+#pf-form-container input {
+  height: 30px;
+  border-radius: 8px;
+
+  padding: 10px 10px 10px 50px;
+}
+
+.input-block h1 {
+  border: none;
+}
+
+.input-item {
+  padding: 10px 10px 10px 10px;
+}
+
+.cep-line {
+  display: inline;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 5px 5px 5px;
+}
+.cep-line button {
+  width: 52px;
+  height: 22px;
+}
+
+.endereco-container {
+  padding-bottom: 10px;
+  border-bottom: 1px solid azure;
+}
+.endereco-container input {
+  height: 30px;
+  border-radius: 8px;
+
+  border: 1px solid azure;
+  padding: 10px 10px 10px 10px;
+}
+
+.end-item {
+  padding: 10px 10px 10px 10px;
+}
+
+.conta-bancaria {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+
+  border-bottom: 1px solid azure;
+}
+.conta-bancaria h1 {
+  padding-top: 10px;
+}
+
+.conta-bancaria input {
+  height: 30px;
+  border-radius: 8px;
+
+  padding: 10px 10px 10px 10px;
+}
+
+.acc-item {
+  padding: 10px;
+}

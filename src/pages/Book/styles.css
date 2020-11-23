@@ -1,0 +1,25 @@
+/*PAGE style*/
+.book-page-container {
+  background: linear-gradient(-90deg, var(--primary), var(--blackLighter));
+  padding-top: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.book-container {
+  width: 60%;
+  height: 90vh;
+}
+
+.book-container li {
+  list-style-type: none;
+  padding: 20px 20px 20px 20px;
+}
+
+@media (max-width: 768px) {
+  .book-container {
+    width: 80%;
+    height: 100vh;
+  }
+}

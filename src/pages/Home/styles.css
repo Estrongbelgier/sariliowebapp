@@ -1,20 +1,26 @@
 .thumbsection {
+  justify-content: center;
+  display: grid;
+  grid-template-rows: auto;
 }
 
 .listsection {
   border: 0;
+  text-align: center;
 }
+
 .listsection ul {
   justify-content: space-between;
   align-items: flex-end;
   display: flex;
   padding-right: 30px;
+  padding-left: 30px;
 }
 
 .listsection li {
   list-style-type: none;
+  padding: 40px 10px;
 
-  padding: 10px;
   transition: padding 0.5s;
 }
 
@@ -25,7 +31,7 @@
   padding-right: 60px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .listsection ul {
     justify-content: center;
     align-items: center;
@@ -37,7 +43,13 @@
 
 .listsection h3 {
   color: var(--blackLighter);
-  align-items: center;
+  padding: 10px;
+}
+
+.listsection p {
+  padding-top: 20px;
+  color: var(--blackLighter);
+  font-size: large;
 }
 
 .formsection {
@@ -98,18 +110,24 @@ form.contatoform .input-block label {
   line-height: 24px;
 }
 
-form.contatoform .input-block input {
+form.contatoform .input-block input,
+textarea {
   width: 100%;
   background: #f5f8fa;
   border: 1px solid #d3e2e5;
   border-radius: 20px;
   outline: none;
-  color: #5c8599;
+  color: var(--frontEnd);
 }
 
 form.contatoform .input-block input {
   height: 64px;
   padding: 0 16px;
+}
+
+form.contatoform .input-block textarea {
+  padding: 16px;
+  padding-top: 20px;
 }
 
 form.contatoform .input-block .button-select button.active {
@@ -125,7 +143,7 @@ form.contatoform button.confirm-button {
   height: 64px;
   border: 0;
   cursor: pointer;
-  background: #3cdc8c;
+  background: #5c8599;
   border-radius: 20px;
   color: #ffffff;
   font-weight: 800;
@@ -142,7 +160,7 @@ form.contatoform button.confirm-button svg {
 }
 
 form.contatoform button.confirm-button:hover {
-  background: #36cf82;
+  background: var(--primary);
 }
 
 @media (max-width: 800px) {
@@ -174,11 +192,16 @@ form.contatoform button.confirm-button:hover {
     padding-bottom: 12px;
   }
 
-  form.contatoform .input-block input {
+  form.contatoform .input-block input,
+  textarea {
     height: 52px;
-    padding: 0 50px;
+    padding: 10px;
   }
 
+  form.contatoform .input-block textarea {
+    padding: 10px;
+    padding-top: 15px;
+  }
   form.contatoform button.confirm-button {
     margin-top: 32px;
   }

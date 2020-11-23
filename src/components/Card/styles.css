@@ -1,0 +1,59 @@
+.card-container {
+  min-width: auto;
+  min-height: 200px;
+  display: block;
+  justify-content: center;
+
+  border: 1px solid azure;
+  border-radius: 14px;
+
+  transition: 0.2s;
+}
+
+.card-container:hover {
+  transform: scale(1.1);
+}
+
+.coin-props {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 5px;
+  color: azure;
+}
+
+.button-container {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-container button {
+  width: 100px;
+  background: var(--color-secondary-dark);
+  transition: background-color 0.2s;
+}
+
+.button-container button:hover {
+  background: yellowgreen;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    transition: none;
+  }
+
+  .card-container:hover {
+    transform: none;
+  }
+
+  .coin-props {
+    display: grid;
+    justify-content: center;
+  }
+
+  .button-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}

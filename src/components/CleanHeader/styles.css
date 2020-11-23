@@ -1,0 +1,55 @@
+.login-header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#icon {
+  padding-top: 50px;
+  padding-left: 60px;
+  transition: opacity 0.2s;
+}
+
+#icon:hover {
+  opacity: 0.7;
+}
+
+#icon h6 {
+  text-decoration: none;
+  text-align: center;
+  font-size: large;
+  color: azure;
+}
+
+#icon-back {
+  padding-top: 50px;
+  padding-right: 60px;
+  transition: opacity 0.2s;
+}
+
+#icon-back:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  #icon-back {
+    padding-top: 25px;
+    padding-right: 30px;
+  }
+
+  .login-header-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #icon {
+    padding: 20px;
+    transition: opacity 0.2s;
+  }
+
+  #login-footer {
+    padding: 20px 20px;
+    color: azure;
+    display: flex;
+    justify-content: center;
+  }
+}

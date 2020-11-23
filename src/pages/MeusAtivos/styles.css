@@ -1,0 +1,7 @@
+.ativos-page-container {
+  background: linear-gradient(-90deg, var(--primary), var(--blackLighter));
+  padding-top: 100px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
