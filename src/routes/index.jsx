@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Profile from '~/pages/Profile/index.jsx';
 import Book from '~/pages/Book/index.jsx';
-import Home from '../pages/Home';
+import Home from '~/pages/Home/index.jsx';
 import Login from '~/pages/Login/index.jsx';
 import AppPage from '~/pages/AppPage/index.jsx';
 import Register from '~/pages/Register/index.jsx';
