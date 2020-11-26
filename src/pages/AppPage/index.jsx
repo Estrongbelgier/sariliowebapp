@@ -21,8 +21,6 @@ function AppPage() {
   const [userData, setUserData] = useState();
   const { signed } = useSelector((state) => state.auth);
 
-  console.tron.log(userData);
-
   useEffect(() => {
     api.get('usuario').then((res) => {
       setUserData(res.data);
