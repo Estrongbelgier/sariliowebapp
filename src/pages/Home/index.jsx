@@ -17,6 +17,7 @@ function Home() {
     e.preventDefault();
     toast.success('Obrigado pelo interesse!');
   }
+
   return (
     <div>
       <Header />

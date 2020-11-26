@@ -28,6 +28,9 @@ function AppPage() {
   }, []);
 
   function reload() {
+    api.get('usuario').then((res) => {
+      setUserData(res.data);
+    });
     window.location.reload();
   }
   return (
