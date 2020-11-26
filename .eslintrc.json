@@ -15,7 +15,7 @@
   "rules": {
     "react/prop-types": 0,
     "operator-linebreak": [0, "after"],
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": [0, "windows"],
     "import/no-extraneous-dependencies": [
       "error",
       {
