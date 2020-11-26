@@ -4,12 +4,14 @@
 import React, { useState, useEffect } from 'react';
 import OutlinedCard from '~/components/Card/index.jsx';
 import InnerHeader from '~/components/InnerHeader/index.jsx';
+import Ativo from '~/components/AtivoDaEmpresa/index.jsx';
 import api from '~/services/api';
 
 import './styles.css';
 
 function Book() {
   const [orders, setOrder] = useState([]);
+  const [ativos, setAtivos] = useState([]);
 
   useEffect(() => {
     async function hanleListOrders() {
@@ -17,6 +19,14 @@ function Book() {
       setOrder(data);
     }
     hanleListOrders();
+  }, []);
+
+  useEffect(() => {
+    async function hanleListAtivos() {
+      const { data } = await api.get('ativos');
+      setAtivos(data);
+    }
+    hanleListAtivos();
   }, []);
 
   return (
@@ -38,6 +48,21 @@ function Book() {
                   order={item.id}
                 />
               </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="book-container">
+        <h1>Ativos da Empresa</h1>
+        <ul>
+          {ativos.map((ativo) => (
+            <li key={ativo.id}>
+              <Ativo
+                id={ativo.id}
+                nome={ativo.nome_do_ativo}
+                quantidade={ativo.quantidade_disponivel}
+                valor={ativo.valor}
+              />
             </li>
           ))}
         </ul>

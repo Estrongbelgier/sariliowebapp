@@ -66,6 +66,10 @@ h2 {
     transition: none;
   }
 
+  .app-container:last-child {
+    height: auto;
+  }
+
   .app-container:hover {
     transform: none;
   }

@@ -19,7 +19,6 @@ export default function Routes() {
       <Route path="/book" component={Book} />
       <Route path="/meusativos" component={MeusAtivos} />
       <Route path="/profile" component={Profile} />
-      <Route />
     </Switch>
   );
 }

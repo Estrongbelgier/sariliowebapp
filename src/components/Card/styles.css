@@ -22,6 +22,10 @@
   color: azure;
 }
 
+.coin-props input {
+  border-radius: 8px;
+}
+
 .button-container {
   padding-top: 30px;
   display: flex;

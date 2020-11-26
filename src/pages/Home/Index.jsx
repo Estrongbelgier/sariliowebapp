@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import Thumb from '~/assets/images/Home/Thumbnail.png';
@@ -28,42 +27,36 @@ function Home() {
         <ul>
           <li>
             <h3>Digital Wallet</h3>
-            <Link to="/wallet">
-              <img src={Wallet} alt="" />
-            </Link>
+
+            <img src={Wallet} alt="" />
+
             <p>
-              Isso aqui é uma texto que deve falar um pouco sobre item aqui
-              descrito.
+              Em nossa digital wallet você tem acesso ao seus ativos e as
+              informações a ele pertencente.
             </p>
           </li>
           <li>
             <h3>Transações</h3>
-            <Link to="/transfer">
-              <img src={Transfer} alt="" />
-            </Link>
+            <img src={Transfer} alt="" />
             <p>
-              Isso aqui é uma texto que deve falar um pouco sobre item aqui
-              descrito.
+              Em nosso ambiente interno você tem acesso as operações em livro de
+              oferta de ativos, e suas informaçoes estão assegurados pela LGPD.
             </p>
           </li>
           <li>
             <h3>Investimentos</h3>
-            <Link to="/investments">
-              <img src={Investments} alt="" />
-            </Link>
+            <img src={Investments} alt="" />
             <p>
-              Isso aqui é uma texto que deve falar um pouco sobre item aqui
-              descrito.
+              Conosco você pode aderir nossos ativos ao seu portifólio de
+              investimento de maneira descomplicada.
             </p>
           </li>
           <li>
             <h3>Dicas e truques</h3>
-            <Link to="/tips">
-              <img src={Tipandtricks} alt="" />
-            </Link>
+            <img src={Tipandtricks} alt="" />
             <p>
-              Isso aqui é uma texto que deve falar um pouco sobre item aqui
-              descrito.
+              Nossos funcionários sempre estão apostos para lhe fornecer dicas e
+              truques do mundo financeiro.
             </p>
           </li>
         </ul>

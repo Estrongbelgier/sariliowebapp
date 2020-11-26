@@ -1,7 +1,22 @@
 .ativos-page-container {
   background: linear-gradient(-90deg, var(--primary), var(--blackLighter));
   padding-top: 100px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  display: grid;
+  justify-content: space-around;
+}
+
+.ativos-container {
+  padding: 20px 20px 20px 20px;
+}
+
+@media (max-width: 768px) {
+  .ativos-page-container {
+    display: grid;
+  }
+
+  .ativos-container {
+    width: 300px;
+    padding-left: 50px;
+  }
 }
