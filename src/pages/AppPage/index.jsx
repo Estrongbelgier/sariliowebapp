@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
 /* eslint-disable no-nested-ternary */
@@ -15,11 +16,12 @@ import api from '~/services/api';
 import formatPrice from '~/utils/corruency';
 
 import './styles.css';
+
 import Coin from '~/components/Coin/index.jsx';
 
 function AppPage() {
   const [userData, setUserData] = useState();
-  const { signed } = useSelector((state) => state.auth);
+  const { signed, token } = useSelector((state) => state.auth);
 
   useEffect(() => {
     api.get('usuario').then((res) => {
@@ -27,12 +29,13 @@ function AppPage() {
     });
   }, []);
 
-  function reload() {
-    api.get('usuario').then((res) => {
-      setUserData(res.data);
-    });
-    window.location.reload();
+  async function reload() {
+    const res = await api.get('/usuario');
+
+    setUserData(res.data);
+    console.log(res);
   }
+
   return (
     <div className="app-page-container">
       <InnerHeader />
