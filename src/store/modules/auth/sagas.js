@@ -33,7 +33,6 @@ export function* signIn({ payload }) {
       pauseOnHover: true,
       draggable: true,
     });
-    window.location.reload();
   } catch (err) {
     yield put(signFailure());
     toast.error('Problema na autenticação!');

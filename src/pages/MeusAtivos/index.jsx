@@ -21,12 +21,17 @@ export default function MeusAtivos() {
   return (
     <div className="ativos-page-container">
       <InnerHeader />
+      <h1>Meus ativos</h1>
       {ativos.map((ativo) => (
-        <CardAtivo
-          nome={ativo.nome}
-          valor={ativo.valor}
-          quantidade={ativo.quantidade}
-        />
+        <div className="ativos-container">
+          <CardAtivo
+            key={ativo.id}
+            id={ativo.id}
+            nome={ativo.nome}
+            valor={ativo.valor}
+            quantidade={ativo.quantidade}
+          />
+        </div>
       ))}
     </div>
   );

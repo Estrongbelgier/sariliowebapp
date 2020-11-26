@@ -1,12 +1,33 @@
+/* eslint-disable no-console */
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
+import React, { useState } from 'react';
 import { MdMonetizationOn } from 'react-icons/md';
 import { BiCoinStack } from 'react-icons/bi';
+import { toast } from 'react-toastify';
 import formatPrice from '~/utils/corruency';
+
+import api from '~/services/api';
 
 import './styles.css';
 
-export default function CardAtivo({ nome, valor, quantidade }) {
+export default function CardAtivo({ id, nome, valor, quantidade }) {
+  const [tipo, setTipo] = useState('Venda');
+
+  async function handleVenda() {
+    try {
+      const res = await api.post(`book?ativo_id=${id}`, {
+        tipo_de_ordem: tipo,
+        preco_limite: valor,
+        quantidade,
+      });
+
+      console.log(res);
+      toast.success('Adiconado ao Livro de Ofertas');
+    } catch (error) {
+      console.log(error);
+      toast.error('Verifique e tente novamente');
+    }
+  }
   return (
     <div className="ativo-card-container">
       <div>
@@ -23,8 +44,9 @@ export default function CardAtivo({ nome, valor, quantidade }) {
         </h2>
       </div>
       <div className="button-container">
-        <button type="button">Vender</button>
-        {/* TODO colcar acao aqui */}
+        <button type="button" onClick={handleVenda}>
+          Vender
+        </button>
       </div>
     </div>
   );

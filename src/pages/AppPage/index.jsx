@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-undef */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable indent */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -5,38 +7,38 @@ import React, { useEffect, useState } from 'react';
 import { CgProfile, CgCheckO, CgPin } from 'react-icons/cg';
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
 import { MdAccountBalance } from 'react-icons/md';
-import { ImCoinDollar } from 'react-icons/im';
-import { RiCopperCoinFill } from 'react-icons/ri';
-import { BiCoinStack } from 'react-icons/bi';
+
 import { GiTwoCoins } from 'react-icons/gi';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import InnerHeader from '~/components/InnerHeader/index.jsx';
 import api from '~/services/api';
-import pacManLoading from '~/assets/images/Loading/pacmanLoading.svg';
 import formatPrice from '~/utils/corruency';
 
 import './styles.css';
+import Coin from '~/components/Coin/index.jsx';
 
 function AppPage() {
   const [userData, setUserData] = useState();
   const { signed } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    async function loadUserData() {
-      const { data } = await api.get('/usuario');
+  console.tron.log(userData);
 
-      setUserData(data);
-      console.tron.log(data);
-    }
-    loadUserData();
+  useEffect(() => {
+    api.get('usuario').then((res) => {
+      setUserData(res.data);
+    });
   }, []);
 
+  function reload() {
+    window.location.reload();
+  }
   return (
     <div className="app-page-container">
       <InnerHeader />
       {!userData ? (
-        <img src={pacManLoading} alt="loading" />
+        <button type="button" onClick={reload}>
+          <h1>Mostrar dados</h1>
+        </button>
       ) : (
         <>
           {userData.PessoaFisica ? (
@@ -130,22 +132,13 @@ function AppPage() {
           </div>
           <div className="app-container">
             <h1>Ativos</h1>
-            {/* TODO colcoar um corrosel */}
             {userData.ClienteAtivos.map((ativos) => (
-              <div key={ativos.id}>
-                <div className="icon-combo">
-                  <RiCopperCoinFill color="#d3e2e5" size={50} />
-                  <h6>{ativos.nome}</h6>
-                </div>
-                <div className="icon-combo">
-                  <ImCoinDollar color="#d3e2e5" size={45} />
-                  <h6>{ativos.valor}</h6>
-                </div>
-                <div className="icon-combo">
-                  <BiCoinStack color="#d3e2e5" size={45} />
-                  <h6>{ativos.quantidade}</h6>
-                </div>
-              </div>
+              <Coin
+                key={ativos.id}
+                nome={ativos.nome}
+                valor={ativos.valor}
+                quantidade={ativos.quantidade}
+              />
             ))}
           </div>
         </>

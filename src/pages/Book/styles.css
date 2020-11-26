@@ -18,8 +18,15 @@
 }
 
 @media (max-width: 768px) {
+  .book-page-container {
+    display: grid;
+  }
+
   .book-container {
-    width: 80%;
-    height: 100vh;
+    width: 100%;
+  }
+
+  .book-container li {
+    padding: 10px 10px 10px 10px;
   }
 }
