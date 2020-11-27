@@ -8,21 +8,21 @@ import React, { useEffect, useState } from 'react';
 import { CgProfile, CgCheckO, CgPin } from 'react-icons/cg';
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
 import { MdAccountBalance } from 'react-icons/md';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { GiTwoCoins } from 'react-icons/gi';
 
 import InnerHeader from '~/components/InnerHeader/index.jsx';
 import api from '~/services/api';
 import formatPrice from '~/utils/corruency';
-
+import pacmanLoading from '~/assets/images/Loading/pacmanLoading.svg';
 import './styles.css';
 
 import Coin from '~/components/Coin/index.jsx';
 
-function AppPage({ auth }) {
+function AppPage() {
   const [userData, setUserData] = useState();
-  const { token } = auth;
+  const { token } = useSelector((state) => state.auth);
 
   useEffect(() => {
     api
@@ -50,9 +50,7 @@ function AppPage({ auth }) {
     <div className="app-page-container">
       <InnerHeader />
       {!userData ? (
-        <button type="button" onClick={reload}>
-          <h1>Mostrar dados</h1>
-        </button>
+        <img src={pacmanLoading} width="100" height="100" alt="coinRolling" />
       ) : (
         <>
           {userData.PessoaFisica ? (
@@ -161,8 +159,4 @@ function AppPage({ auth }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
-
-export default connect(mapStateToProps)(AppPage);
+export default AppPage;

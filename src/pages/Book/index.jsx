@@ -2,20 +2,27 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import OutlinedCard from '~/components/Card/index.jsx';
 import InnerHeader from '~/components/InnerHeader/index.jsx';
 import Ativo from '~/components/AtivoDaEmpresa/index.jsx';
 import api from '~/services/api';
+import pacmanLoading from '~/assets/images/Loading/pacmanLoading.svg';
 
 import './styles.css';
 
 function Book() {
   const [orders, setOrder] = useState([]);
   const [ativos, setAtivos] = useState([]);
+  const { token } = useSelector((state) => state.auth);
 
   useEffect(() => {
     async function hanleListOrders() {
-      const { data } = await api.get('book');
+      const { data } = await api.get('book', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setOrder(data);
     }
     hanleListOrders();
@@ -23,7 +30,11 @@ function Book() {
 
   useEffect(() => {
     async function hanleListAtivos() {
-      const { data } = await api.get('ativos');
+      const { data } = await api.get('ativos', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setAtivos(data);
     }
     hanleListAtivos();
