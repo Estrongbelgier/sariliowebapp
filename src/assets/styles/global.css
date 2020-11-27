@@ -60,11 +60,15 @@ body::-webkit-scrollbar-thumb {
   size: 10px;
 }
 
+input:focus {
+  color: var(--black);
+}
 a {
   color: inherit;
 }
 
 code {
+  color: var(--black);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
