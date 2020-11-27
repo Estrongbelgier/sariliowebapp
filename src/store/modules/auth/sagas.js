@@ -22,9 +22,7 @@ export function* signIn({ payload }) {
     }
 
     yield put(signInSuccess(token, usuario));
-
     history.push('/app');
-    window.location.reload();
     toast.success('Seja bem vindo!', {
       position: 'bottom-center',
       autoClose: 2000,
