@@ -8,9 +8,10 @@ import React, { useEffect, useState } from 'react';
 import { CgProfile, CgCheckO, CgPin } from 'react-icons/cg';
 import { HiOutlineCurrencyDollar } from 'react-icons/hi';
 import { MdAccountBalance } from 'react-icons/md';
+import { connect, useSelector } from 'react-redux';
 
 import { GiTwoCoins } from 'react-icons/gi';
-import { useSelector } from 'react-redux';
+
 import InnerHeader from '~/components/InnerHeader/index.jsx';
 import api from '~/services/api';
 import formatPrice from '~/utils/corruency';
@@ -19,21 +20,30 @@ import './styles.css';
 
 import Coin from '~/components/Coin/index.jsx';
 
-function AppPage() {
+function AppPage({ auth }) {
   const [userData, setUserData] = useState();
-  const { signed, token } = useSelector((state) => state.auth);
+  const { token } = auth;
 
   useEffect(() => {
-    api.get('usuario').then((res) => {
-      setUserData(res.data);
-    });
+    api
+      .get('usuario', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setUserData(res.data);
+      });
   }, []);
 
   async function reload() {
-    const res = await api.get('/usuario');
+    const res = await api.get('/usuario', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     setUserData(res.data);
-    console.log(res);
   }
 
   return (
@@ -151,4 +161,8 @@ function AppPage() {
   );
 }
 
-export default AppPage;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(AppPage);
