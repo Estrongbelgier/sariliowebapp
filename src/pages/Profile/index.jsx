@@ -3,10 +3,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
-import { Form, Input } from '@rocketseat/unform';
+import { Input } from '@rocketseat/unform';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 import InnerHeader from '~/components/InnerHeader/index.jsx';
-
 import './styles.css';
 
 import PFCard from '~/components/PFCard/index.jsx';
@@ -29,6 +29,8 @@ function Profile() {
   const [agencia, setAgencia] = useState();
   const [conta, setConta] = useState();
 
+  const { token } = useSelector((state) => state.auth);
+
   async function handleBuscaCep() {
     const { data } = await cepApi.get(`/${cep}/json`);
     console.log(data);
@@ -48,9 +50,17 @@ function Profile() {
   }
 
   async function depositar() {
-    const res = await api.post('deposito', {
-      brl_saldo: money,
-    });
+    const res = await api.post(
+      'deposito',
+      {
+        brl_saldo: money,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     res
       ? toast.success('FAKE deposito realizado!!')
       : toast.error('FAKE desito não realizado');
@@ -58,14 +68,22 @@ function Profile() {
 
   async function handleContaBancaria() {
     try {
-      const res = await api.post('/accban', {
-        cpf,
-        titular,
-        numero_do_banco: banco,
-        tipo_de_conta: tipo,
-        agencia,
-        numero_da_conta: conta,
-      });
+      const res = await api.post(
+        '/accban',
+        {
+          cpf,
+          titular,
+          numero_do_banco: banco,
+          tipo_de_conta: tipo,
+          agencia,
+          numero_da_conta: conta,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       toast.sucess('Conta registrada!');
       history.push('/app');
       window.location.reload();
